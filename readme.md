@@ -1,43 +1,9 @@
-# jQuery Countdown
+# Countdown Timer
 
-A simple jQuery plugin for creating a countdown timer. Example:
+This is a simple countdown timer that will count down to a specified date. This date is specified with (js Date)["http://www.w3schools.com/js/js_dates.asp"] and can be set with a multitude of formats.
 
-```js
-$(function(){
-	
-	var note = $('#note'),
-		ts = new Date(2012, 0, 1),
-		newYear = true;
-	
-	if((new Date()) > ts){
-		// The new year is here! Count towards something else.
-		// Notice the *1000 at the end - time must be in milliseconds
-		ts = (new Date()).getTime() + 10*24*60*60*1000;
-		newYear = false;
-	}
-		
-	$('#countdown').countdown({
-		timestamp	: ts,
-		callback	: function(days, hours, minutes, seconds){
-			
-			var message = "";
-			
-			message += days + " day" + ( days==1 ? '':'s' ) + ", ";
-			message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
-			message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
-			message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
-			
-			if(newYear){
-				message += "left until the new year!";
-			}
-			else {
-				message += "left to 10 days from now!";
-			}
-			
-			note.html(message);
-		}
-	});
-	
-});
-```
-For more examples go to the plugin homepage on [Tutorialzine](http://tutorialzine.com/2011/12/countdown-jquery/).
+The awesome thing about this countdown timer is that it is plain text with no images. The entire thing is html, css and javascript which means that the design can be changed to suit any needs. The css (stylesheet.css) and javascript (script.js) are both customisable without changing the fact that jquery.countdown.js will countdown the days to any given date.
+
+#### limitations
+- The current system does not compensate for years. To change this you will need to change jquery.countdown.js to get the year and then display it. This should not be too hard.
+- The current system only will go up to 99 days. Again, this should be a simple addition.
